@@ -12,3 +12,9 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- task: Xcode@5
+  inputs:
+    actions: 'build'
+    packageApp: false
+  
+  
