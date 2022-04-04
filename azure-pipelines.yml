@@ -1,20 +1,15 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'macos-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 - task: Xcode@5
   inputs:
     actions: 'build'
-    packageApp: false
-  
-  
+    scheme: ''
+    sdk: 'iphoneos'
+    configuration: 'Release'
+    archivePath: '/'
+    packageApp: true
+    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
+    xcodeVersion: 'default' # Options: 8, 9, 10, 11, 12, default, specifyPath
