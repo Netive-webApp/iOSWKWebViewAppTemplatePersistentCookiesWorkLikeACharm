@@ -15,6 +15,7 @@ steps:
   inputs:
     script: |
       ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
+      find *.app
       echo ok
 
       
