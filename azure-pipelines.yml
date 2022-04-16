@@ -14,7 +14,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      tree
+      ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
       echo ok
 
       
