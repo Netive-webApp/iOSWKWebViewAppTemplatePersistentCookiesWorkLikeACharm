@@ -14,7 +14,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      ls -la
+      tree
       echo ok
 
       
