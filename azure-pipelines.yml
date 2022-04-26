@@ -4,30 +4,12 @@ pool:
   
 steps:
 
-- task: Xcode@5
-  inputs:
-    actions: 'build'
-    configuration: 
-    exportOptions: 'specify'
-    exportTeamId: "Team Id"
-    sdk: 'iphoneos'
-    packageApp: true
-    exportPath: 'output/'
-- task: CopyFiles@2
-  inputs:
-    contents: '**/*.ipa'
-    targetFolder: '$(build.artifactStagingDirectory)'
-    overWrite: true
-    flattenFolders: true
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathtoPublish: '$(build.artifactStagingDirectory)'
-    artifactName: 'drop'
-    publishLocation: 'Container'
 - task: CmdLine@2
   inputs:
     script: |
-      /usr/bin/xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      /usr/bin/xcodebuild -exportArchive -exportFormat ipa -archivePath /Users/runner/work/1/s/iOSWKWebViewAppTemplateCookiesWorkLikeACharm.xcarchive -exportPath /Users/runner/work/1/s/output/
+
+
 
 
       
