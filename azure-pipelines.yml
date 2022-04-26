@@ -4,10 +4,12 @@ pool:
   
 steps:
 
+
 - task: CmdLine@2
   inputs:
     script: |
-      /usr/bin/xcodebuild -exportArchive -exportFormat ipa -archivePath /Users/runner/work/1/s/iOSWKWebViewAppTemplateCookiesWorkLikeACharm.xcarchive -exportPath /Users/runner/work/1/s/output/
+      /usr/bin/xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      /usr/bin/xcodebuild -exportArchive -archivePath /Users/runner/work/1/s/iOSWKWebViewAppTemplateCookiesWorkLikeACharm.xcarchive -exportPath /Users/runner/work/1/s/output/
 
 
 
