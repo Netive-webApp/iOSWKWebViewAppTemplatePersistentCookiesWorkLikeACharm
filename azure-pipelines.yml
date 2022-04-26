@@ -3,13 +3,11 @@ pool:
 
   
 steps:
-- task: CmdLine@2
+
+- task: Xcode@5
   inputs:
-    script: |
-      /usr/bin/xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-      /usr/bin/xcodebuild -exportArchive -archivePath /Users/runner/work/1/s/iOSWKWebViewAppTemplateCookiesWorkLikeACharm.xcarchive -exportPath /Users/runner/work/1/s/output/ -exportOptionsPlist _XcodeTaskExportOptions.plist | /usr/local/lib/ruby/gems/2.7.0/bin/xcpretty --no-color
-
-
-
-
-      
+    actions: 'build'
+    configuration: 
+    sdk: 'iphoneos'
+    packageApp: true
+    exportPath: 
