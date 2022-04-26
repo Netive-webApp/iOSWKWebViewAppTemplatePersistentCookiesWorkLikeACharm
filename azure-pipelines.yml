@@ -6,7 +6,7 @@ steps:
 - task: InstallAppleCertificate@2
   inputs:
     certSecureFile: 'we.p12'
-    certPwd: $(appCertificatePassword)
+    certPwd: 'shalu'
     keychain: 'temp'
     deleteCert: true
 - task: InstallAppleProvisioningProfile@1
@@ -17,7 +17,7 @@ steps:
   inputs:
     actions: 'build'
     scheme: ''
-    sdk: 'iphoneosZ'
+    sdk: 'iphoneos'
     configuration: '$(configuration)'
     xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
     xcodeVersion: 'default'
