@@ -8,6 +8,8 @@ steps:
   inputs:
     actions: 'build'
     configuration: 
+    exportOptions: 'specify'
+    exportTeamId: "Team Id"
     sdk: 'iphoneos'
     packageApp: true
     exportPath: 'output/'
@@ -25,8 +27,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'
-      find *.app
-      echo ok
+      xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+
 
       
