@@ -3,28 +3,14 @@ pool:
 
   
 steps:
-- task: InstallAppleCertificate@2
-  inputs:
-    certSecureFile: 'we.p12'
-    certPwd: 'shalu'
-    keychain: 'temp'
-    deleteCert: true
-- task: InstallAppleProvisioningProfile@1
-  inputs:
-    provProfileSecureFile: 'iOS.mobileprovision'
-    removeProfile: true
+
 - task: Xcode@5
   inputs:
     actions: 'build'
-    scheme: ''
+    configuration: 
     sdk: 'iphoneos'
-    configuration: '$(configuration)'
-    xcWorkspacePath: '**/*.xcodeproj/project.xcworkspace'
-    xcodeVersion: 'default'
-    signingOption: 'manual'
-    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
-    provisioningProfileUuid: '$(APPLE_PROV_PROFILE_UUID)'
     packageApp: true
+    exportPath: 'output/'
 - task: CopyFiles@2
   inputs:
     contents: '**/*.ipa'
