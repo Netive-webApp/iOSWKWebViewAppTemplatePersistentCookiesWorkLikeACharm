@@ -11,7 +11,7 @@ steps:
     deleteCert: true
 - task: InstallAppleProvisioningProfile@1
   inputs:
-    provProfileSecureFile: 'app.mobileprovision'
+    provProfileSecureFile: 'iOS.mobileprovision'
     removeProfile: true
 - task: Xcode@5
   inputs:
